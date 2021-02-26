@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3252198953064541193}
   - component: {fileID: 3252198953064541194}
+  - component: {fileID: 2254028257770719678}
   m_Layer: 0
   m_Name: porte_est
   m_TagString: Untagged
@@ -68,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1950967029
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2868058710632577625, guid: 8188dfdc262049547b27736b129a8714, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -82,6 +83,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2254028257770719678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252198953064541192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8fa7091fd538a4ea0c5ba0fbf596e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 1
 --- !u!1 &3252198953082823547
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3252198953108770675}
   - component: {fileID: 3252198953108770676}
+  - component: {fileID: 8089095903302324039}
   m_Layer: 0
   m_Name: porte_nord
   m_TagString: Untagged
@@ -232,8 +247,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1950967029
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 593816990817623035, guid: 8188dfdc262049547b27736b129a8714, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -246,6 +261,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8089095903302324039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252198953108770674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8fa7091fd538a4ea0c5ba0fbf596e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 2
 --- !u!1 &3252198953269787883
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3252198954166576225}
   - component: {fileID: 3252198954166576226}
+  - component: {fileID: 6159344765182021702}
   m_Layer: 0
   m_Name: porte_ouest
   m_TagString: Untagged
@@ -806,8 +835,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1950967029
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2131276652550203807, guid: 8188dfdc262049547b27736b129a8714, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -820,6 +849,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6159344765182021702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252198954166576224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8fa7091fd538a4ea0c5ba0fbf596e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 0
 --- !u!1 &3252198954279960482
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,6 +994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3252198954519771079}
   - component: {fileID: 3252198954519771080}
+  - component: {fileID: 8345366878969632511}
   m_Layer: 0
   m_Name: porte_sud
   m_TagString: Untagged
@@ -1010,8 +1053,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1950967029
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -5489056322385079732, guid: 8188dfdc262049547b27736b129a8714, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1024,6 +1067,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8345366878969632511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252198954519771078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8fa7091fd538a4ea0c5ba0fbf596e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 3
 --- !u!1 &3252198954533728926
 GameObject:
   m_ObjectHideFlags: 0
