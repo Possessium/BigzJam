@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class BJ_Enemy : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class BJ_Enemy : MonoBehaviour
     [SerializeField] EnemyType enemyType;
     [SerializeField] SpriteRenderer renderer;
     [SerializeField] BJ_EnemyData data;
+    [SerializeField] Image healthImage;
+    [SerializeField] GameObject healthFeedback;
+    [SerializeField] float scale;
     Vector3 _pos = Vector3.zero;
 
     public int Health { get; private set; } = 100;
@@ -66,7 +70,7 @@ public class BJ_Enemy : MonoBehaviour
 
     void Update()
     {
-        
+        healthImage.transform.parent.GetComponent<RectTransform>().eulerAngles = new Vector3(90, -transform.rotation.y, 0);
 
         if (playerFound)
         {
@@ -108,12 +112,11 @@ public class BJ_Enemy : MonoBehaviour
             case EnemyType.Cac:
 
                 _pos = targetPlayer.transform.position;
-                if (Vector3.Distance(_pos, new Vector3(transform.position.x, 0, transform.position.z)) < data.CacDistanceMaxHit)
+                if (Vector3.Distance(new Vector3(targetPlayer.transform.position.x, 0, targetPlayer.transform.position.z), new Vector3(transform.position.x, 0, transform.position.z)) < data.CacDistanceMaxHit)
                 {
                     if(canHit)
                     {
-                        // TAPPER
-                        Debug.Log("BASTON");
+                        targetPlayer.GetComponent<BJ_Player>().Hit();
                         StartCoroutine(CoolDown());
                     }
                 }
@@ -132,8 +135,7 @@ public class BJ_Enemy : MonoBehaviour
                     _pos = transform.position;
                     if (canHit)
                     {
-                        // SHOOT
-                        Debug.Log("FEUUUUUUU");
+                        targetPlayer.GetComponent<BJ_Player>().Hit();
                         StartCoroutine(CoolDown());
                     }
                 }
@@ -201,9 +203,42 @@ public class BJ_Enemy : MonoBehaviour
 
     public void Hit(int _dmg)
     {
-
+        Health -= _dmg;
+        healthImage.fillAmount = Health < 0 ? 0 : Health;
+        if (Health <= 0)
+            Death();
+        GameObject _damage = Instantiate(healthFeedback, healthImage.transform.parent);
+        _damage.transform.eulerAngles = new Vector3(90, 0, 0);
+        _damage.GetComponent<TMPro.TMP_Text>().SetText(_dmg.ToString());
+        StartCoroutine(DamageFeedback(_damage));
     }
 
+    IEnumerator DamageFeedback(GameObject _go)
+    {
+        bool _right = _go.transform.localPosition.x < -2;
+        while (true)
+        {
+            _go.transform.position += new Vector3(_right ? 3f : -3f, 0, .5f) * Time.deltaTime * scale;
+
+            if (_right && _go.transform.localPosition.x > 2)
+                _right = false;
+            if (!_right && _go.transform.localPosition.x < -2)
+                _right = true;
+
+            if(_go.transform.localPosition.y > 5)
+            {
+                Destroy(_go);
+                yield break;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    void Death()
+    {
+
+    }
 
     enum EnemyType
     {

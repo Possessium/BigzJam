@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class BJ_Player : MonoBehaviour
 {
-    [SerializeField] int health = 100;
+    [SerializeField] int maxHealth = 5;
+    [SerializeField] int health = 5;
     [SerializeField] SpellType spell1;
     [SerializeField] SpellType spell2;
     [SerializeField] GameObject aimObject;
     [SerializeField] LayerMask wallLayer;
+    [SerializeField] SpriteRenderer rend;
 
     #region Spells
 
@@ -33,10 +37,30 @@ public class BJ_Player : MonoBehaviour
 
     #endregion
 
+    [SerializeField] GameObject healthSource;
+    [SerializeField] List<GameObject> healths;
+    [SerializeField] Canvas ui;
+
+    #region EndUI
+    [SerializeField] GameObject deathUI;
+    [SerializeField] TMP_Text score;
+    [SerializeField] TMP_Text highScore;
+    #endregion
+
+    [SerializeField] bool canMove = false;
+
     Vector2 movement;
+
+    private void Start()
+    {
+        InitHealth();
+    }
 
     private void Update()
     {
+        if (!canMove)
+            return;
+
         RaycastHit _hit;
         if (Physics.Raycast(transform.position, new Vector3(movement.x, 0, 0), out _hit, 1, wallLayer))
             movement.x = 0;
@@ -47,10 +71,23 @@ public class BJ_Player : MonoBehaviour
         transform.position += new Vector3(movement.x, 0, movement.y) * .1f;
     }
 
+    void InitHealth()
+    {
+        health = maxHealth;
+
+        for (int i = 0; i < maxHealth; i++)
+        {
+            GameObject _go = Instantiate(healthSource, ui.transform);
+            healths.Add(_go);
+            _go.GetComponent<RectTransform>().anchoredPosition = new Vector3((healthSource.GetComponent<RectTransform>().rect.width * i) + i * 20 + 20, -20, 0);
+        }
+    }
 
     public void Move(InputAction.CallbackContext _ctx)
     {
         movement = _ctx.ReadValue<Vector2>();
+
+        rend.flipX = movement.x < 0;
     }
 
     public void Aim(InputAction.CallbackContext _ctx)
@@ -144,19 +181,67 @@ public class BJ_Player : MonoBehaviour
         }
     }
 
-    public void SwitchSpell(InputAction.CallbackContext _ctx)
+    public void SwitchSpell1(InputAction.CallbackContext _ctx)
     {
-
+        SwitchSpell(true);
     }
 
-    public void Hit(int _dmg)
+    public void SwitchSpell2(InputAction.CallbackContext _ctx)
     {
+        SwitchSpell(false);
+    }
 
+    void SwitchSpell(bool _1)
+    {
+        // Choper le spell au sol (si non return)
+        BJ_SpellItem _s = null;
+
+        BJ_SpellItem[] _items = FindObjectsOfType<BJ_SpellItem>();
+
+        for (int i = 0; i < _items.Length; i++)
+        {
+            if(Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(_items[i].transform.position.x, 0, _items[i].transform.position.z)) < 2)
+            {
+                _s = _items[i];
+                break;
+            }
+        }
+
+        if (!_s)
+            return;
+
+        SpellType _t = _s.TypeSpell;
+
+        if(_1)
+        {
+            _s.SwitchType(spell1);
+            spell1 = _t;
+            StartCoroutine(CoolDown(spell1));
+        }
+
+        else
+        {
+            _s.SwitchType(spell2);
+            spell2 = _t;
+            StartCoroutine(CoolDown(spell2));
+        }
+    }
+
+        public void Hit()
+    {
+        health--;
+        if(health <= 0)
+        {
+            Death();
+            return;
+        }
+        healths[health].transform.GetChild(0).gameObject.SetActive(false);
     }
 
     void Death()
     {
-
+        healths[0].transform.GetChild(0).gameObject.SetActive(false);
+        canMove = false;
     }
 
 }
