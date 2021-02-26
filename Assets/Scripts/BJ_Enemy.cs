@@ -197,7 +197,10 @@ public class BJ_Enemy : MonoBehaviour
 
     }
 
+    public void Hit(int _dmg)
+    {
 
+    }
 
 
     enum EnemyType
