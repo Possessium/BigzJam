@@ -11,15 +11,33 @@ public class Room : MonoBehaviour
 
     public int X;
 
-    public int Y;
+    public int Z;
 
-    public Door leftDoor;
+    private bool updatedDoors = false;
+    
+   
 
-    public Door rightDoor;
+    public Room(int x, int z)
+    {
+        X = x;
+        Z = z;
+    }
 
-    public Door topDoor;
+    public Door leftDoor1;
 
-    public Door bottomDoor;
+    public Door leftDoor2;
+
+    public Door rightDoor1;
+
+    public Door rightDoor2;
+
+    public Door topDoor1;
+
+    public Door topDoor2;
+
+    public Door bottomDoor1;
+
+    public Door bottomDoor2;
 
     public List<Door> doors = new List<Door>();
 
@@ -40,21 +58,50 @@ public class Room : MonoBehaviour
             doors.Add(d);
             switch(d.doorType)
             {
-                case Door.DoorType.right:
-                    rightDoor = d;
+                case Door.DoorType.right1:
+                    rightDoor1 = d;
                     break;
-                case Door.DoorType.left:
-                    leftDoor = d;
+
+                case Door.DoorType.right2:
+                    rightDoor2 = d;
                     break;
-                case Door.DoorType.top:
-                    topDoor = d;
+
+                case Door.DoorType.left1:
+                    leftDoor1 = d;
                     break;
-                case Door.DoorType.bottom:
-                    bottomDoor = d;
+
+                case Door.DoorType.left2:
+                    leftDoor2 = d;
+                    break;
+
+                case Door.DoorType.top1:
+                    topDoor1 = d;
+                    break;
+
+                case Door.DoorType.top2:
+                    topDoor2 = d;
+                    break;
+
+                case Door.DoorType.bottom1:
+                    bottomDoor1 = d;
+                    break;
+
+                case Door.DoorType.bottom2:
+                    bottomDoor2 = d;
                     break;
             }
         }
         RoomController.instance.RegisterRoom(this);
+    }
+
+    void Update()
+    {
+        if(name.Contains("End") && !updatedDoors)
+        {
+            RemoveUnconnectedDoors();
+            updatedDoors = true;
+        }
+        
     }
 
     public void RemoveUnconnectedDoors()
@@ -63,19 +110,42 @@ public class Room : MonoBehaviour
         {
             switch(door.doorType)
             {
-                case Door.DoorType.right:
+                case Door.DoorType.right1:
                     if (GetRight() == null)
                         door.gameObject.SetActive(false);
                     break;
-                case Door.DoorType.left:
+
+                case Door.DoorType.right2:
+                    if (GetRight() == null)
+                        door.gameObject.SetActive(false);
+                    break;
+
+                case Door.DoorType.left1:
                     if (GetLeft() == null)
                         door.gameObject.SetActive(false);
                     break;
-                case Door.DoorType.top:
+
+                case Door.DoorType.left2:
+                    if (GetLeft() == null)
+                        door.gameObject.SetActive(false);
+                    break;
+
+                case Door.DoorType.top1:
                     if (GetTop() == null)
                         door.gameObject.SetActive(false);
                     break;
-                case Door.DoorType.bottom:
+
+                case Door.DoorType.top2:
+                    if (GetTop() == null)
+                        door.gameObject.SetActive(false);
+                    break;
+
+                case Door.DoorType.bottom1:
+                    if (GetBottom() == null)
+                        door.gameObject.SetActive(false);
+                    break;
+
+                case Door.DoorType.bottom2:
                     if (GetBottom() == null)
                         door.gameObject.SetActive(false);
                     break;
@@ -85,9 +155,9 @@ public class Room : MonoBehaviour
 
     public Room GetRight()
     {
-        if(RoomController.instance.DoesRoomExist(X + 1, Y))
+        if(RoomController.instance.DoesRoomExist(X + 1, Z))
         {
-            return RoomController.instance.FindRoom(X + 1, Y);
+            return RoomController.instance.FindRoom(X + 1, Z);
         }
 
         return null;
@@ -95,11 +165,11 @@ public class Room : MonoBehaviour
 
     public Room GetLeft()
     {
-        if (RoomController.instance.DoesRoomExist(X - 1, Y))
+        if (RoomController.instance.DoesRoomExist(X - 1, Z))
         {
-            return RoomController.instance.FindRoom(X - 1, Y);
+            return RoomController.instance.FindRoom(X - 1, Z);
         }
-
+        
         return null;
 
 
@@ -107,9 +177,9 @@ public class Room : MonoBehaviour
 
     public Room GetTop()
     {
-        if (RoomController.instance.DoesRoomExist(X, Y + 1))
+        if (RoomController.instance.DoesRoomExist(X, Z + 1))
         {
-            return RoomController.instance.FindRoom(X, Y + 1);
+            return RoomController.instance.FindRoom(X, Z + 1);
         }
 
         return null;
@@ -118,9 +188,9 @@ public class Room : MonoBehaviour
 
     public Room GetBottom()
     {
-        if (RoomController.instance.DoesRoomExist(X, Y - 1))
+        if (RoomController.instance.DoesRoomExist(X, Z - 1))
         {
-            return RoomController.instance.FindRoom(X, Y - 1);
+            return RoomController.instance.FindRoom(X, Z - 1);
         }
 
         return null;
@@ -130,12 +200,12 @@ public class Room : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, new Vector3(Width, Height, 0));
+        Gizmos.DrawWireCube(transform.position, new Vector3(Width, 0, Height));
 
     }
     
     public Vector3 GetRoomCenter()
     {
-        return new Vector3(X * Width, Y * Height);
+        return new Vector3(X * Width, 0,  Z * Height);
     }
 }

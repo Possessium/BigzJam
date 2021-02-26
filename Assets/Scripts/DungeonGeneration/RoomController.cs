@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 
 public class RoomInfo
@@ -10,7 +11,7 @@ public class RoomInfo
 
     public int x;
 
-    public int y;
+    public int z;
 }
 
 public class RoomController : MonoBehaviour
@@ -27,6 +28,8 @@ public class RoomController : MonoBehaviour
     public List<Room> loadedRooms = new List<Room>();
 
     bool isLoadingRoom = false;
+    bool spawnedBossRoom = false;
+    bool updatedRooms = false;
 
     void Awake()
     {
@@ -35,14 +38,6 @@ public class RoomController : MonoBehaviour
 
     void Start()
     {
-        /*LoadRoom("Start", 0, 0);
-        LoadRoom("Empty", 1, 0);
-        LoadRoom("Empty", -1, 0);
-        LoadRoom("Empty", 0, 1);
-        LoadRoom("Empty", 0, -1);*/
-
-
-
 
     }
 
@@ -60,6 +55,18 @@ public class RoomController : MonoBehaviour
 
         if(loadRoomQueue.Count == 0)
         {
+            if (!spawnedBossRoom)
+            {
+                StartCoroutine(SpawnBossRoom());
+            }         
+            else if(spawnedBossRoom && !updatedRooms)
+            {
+                foreach(Room room in loadedRooms)
+                {
+                    room.RemoveUnconnectedDoors();
+                }
+                updatedRooms = true;
+            }
             return;
         }
 
@@ -68,17 +75,32 @@ public class RoomController : MonoBehaviour
 
         StartCoroutine(LoadRoomRoutine(currentLoadRoomData));
     }
-       
-    public void LoadRoom(string name, int x, int y)
+    
+    IEnumerator SpawnBossRoom()
     {
-        if(DoesRoomExist(x, y) == true)
+        spawnedBossRoom = true;
+        yield return new WaitForSeconds(0.5f);
+        if(loadRoomQueue.Count == 0)
+        {
+            Room bossRoom = loadedRooms[loadedRooms.Count - 1];
+            Room tempRoom = new Room(bossRoom.X, bossRoom.Z);
+            Destroy(bossRoom.gameObject);
+            var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Z == tempRoom.Z);
+            loadedRooms.Remove(roomToRemove);
+            LoadRoom("End", tempRoom.X, tempRoom.Z);
+        }
+    }
+       
+    public void LoadRoom(string name, int x, int z)
+    {
+        if(DoesRoomExist(x, z) == true)
         {
             return;
         }
         RoomInfo newRoomData = new RoomInfo();
         newRoomData.name = name;
         newRoomData.x = x;
-        newRoomData.y = y;
+        newRoomData.z = z;
 
         loadRoomQueue.Enqueue(newRoomData);
     }
@@ -99,24 +121,26 @@ public class RoomController : MonoBehaviour
         if (currentLoadRoomData == null)
             return;
 
-        if (!DoesRoomExist(currentLoadRoomData.x, currentLoadRoomData.y))
+        if (!DoesRoomExist(currentLoadRoomData.x, currentLoadRoomData.z))
         {        
 
             room.transform.position = new Vector3(
                 currentLoadRoomData.x * room.Width,
-                currentLoadRoomData.y * room.Height,
-                0
+                0,
+                currentLoadRoomData.z * room.Height
+                
             );
 
             room.X = currentLoadRoomData.x;
-            room.Y = currentLoadRoomData.y;
-            room.name = currentWorldName + "-" + currentLoadRoomData.name + " " + room.X + ", " + room.Y;
+            room.Z = currentLoadRoomData.z;
+            room.name = currentWorldName + "-" + currentLoadRoomData.name + " " + room.X + ", " + room.Z;
             room.transform.parent = transform;
 
             isLoadingRoom = false;
 
             loadedRooms.Add(room);
-            room.RemoveUnconnectedDoors();
+
+            /////
         }
         else
         {
@@ -125,14 +149,14 @@ public class RoomController : MonoBehaviour
         }
     }
 
-   public bool DoesRoomExist(int x, int y)
+   public bool DoesRoomExist(int x, int z)
     {
-        return loadedRooms.Find(item => item.X == x && item.Y == y) != null;
+        return loadedRooms.Find(item => item.X == x && item.Z == z) != null;
     }
 
-    public Room FindRoom(int x, int y)
+    public Room FindRoom(int x, int z)
     {
-        return loadedRooms.Find(item => item.X == x && item.Y == y);
+        return loadedRooms.Find(item => item.X == x && item.Z == z);
     }
 
 }
