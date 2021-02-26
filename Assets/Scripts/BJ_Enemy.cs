@@ -66,6 +66,8 @@ public class BJ_Enemy : MonoBehaviour
 
     void Update()
     {
+        
+
         if (playerFound)
         {
             PlayerFoundBehaviour();

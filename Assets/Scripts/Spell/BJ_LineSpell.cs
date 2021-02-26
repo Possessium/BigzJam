@@ -6,12 +6,15 @@ public class BJ_LineSpell : BJ_Spell
 {
     private void Update()
     {
-        transform.position += new Vector3(transform.forward.x, 0, transform.forward.z) * .01f;
+        transform.position += new Vector3(transform.forward.x, 0, transform.forward.z) * .1f;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.GetComponent<BJ_Player>())
+            return;
+
+        if (collision.transform.GetComponent<BJ_Enemy>())
         {
             collision.transform.GetComponent<BJ_Enemy>().Hit(damage);
         }

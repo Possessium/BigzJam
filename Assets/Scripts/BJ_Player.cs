@@ -55,13 +55,9 @@ public class BJ_Player : MonoBehaviour
 
     public void Aim(InputAction.CallbackContext _ctx)
     {
-
-    }
-
-    // mouse aim (plus tard)
-    public void Aim()
-    {
-
+        if (_ctx.ReadValue<Vector2>() == Vector2.zero)
+            return;
+        aimObject.transform.position = transform.position + (new Vector3(_ctx.ReadValue<Vector2>().normalized.x, 0, _ctx.ReadValue<Vector2>().normalized.y)) * 5;
     }
 
     public void Fire1(InputAction.CallbackContext _ctx)
