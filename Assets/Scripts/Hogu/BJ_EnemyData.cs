@@ -18,5 +18,10 @@ public class BJ_EnemyData : ScriptableObject
     public float DistRangeMaxHit = 10;
     public float HealRangeMaxHeal = 7.5f;
 
+    public int CacValue = 100;
+    public int CacFatValue = 250;
+    public int DistValue = 175;
+    public int HealValue = 300;
+
     public float CooldownDuration = 2;
 }

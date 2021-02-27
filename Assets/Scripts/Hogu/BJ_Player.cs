@@ -14,6 +14,8 @@ public class BJ_Player : MonoBehaviour
     [SerializeField] GameObject aimObject;
     [SerializeField] LayerMask wallLayer;
     [SerializeField] SpriteRenderer rend;
+    [SerializeField] Animator animator;
+    [SerializeField] float noHitDuration;
 
     #region Spells
 
@@ -41,11 +43,6 @@ public class BJ_Player : MonoBehaviour
     [SerializeField] List<GameObject> healths;
     [SerializeField] Canvas ui;
 
-    #region EndUI
-    [SerializeField] GameObject deathUI;
-    [SerializeField] TMP_Text score;
-    [SerializeField] TMP_Text highScore;
-    #endregion
 
     [SerializeField] bool canMove = false;
 
@@ -71,6 +68,10 @@ public class BJ_Player : MonoBehaviour
         transform.position += new Vector3(movement.x, 0, movement.y) * .1f;
     }
 
+    public void SetMove(bool _state)
+    {
+        canMove = _state;
+    }
     void InitHealth()
     {
         health = maxHealth;
@@ -86,6 +87,8 @@ public class BJ_Player : MonoBehaviour
     public void Move(InputAction.CallbackContext _ctx)
     {
         movement = _ctx.ReadValue<Vector2>();
+
+        animator.SetBool("Moving", movement.magnitude > 0);
 
         rend.flipX = movement.x < 0;
     }
@@ -108,6 +111,9 @@ public class BJ_Player : MonoBehaviour
 
     void FireSpell(SpellType _t)
     {
+        if (!canMove)
+            return;
+
         Quaternion _rotation = Quaternion.LookRotation(new Vector3(aimObject.transform.position.x, 0, aimObject.transform.position.z) - new Vector3(transform.position.x, 0, transform.position.z));
         switch (_t)
         {
@@ -151,6 +157,7 @@ public class BJ_Player : MonoBehaviour
 
     IEnumerator CoolDown(SpellType _t)
     {
+        animator.SetTrigger("Attack");
         switch (_t)
         {
             case SpellType.Line:
@@ -227,19 +234,44 @@ public class BJ_Player : MonoBehaviour
         }
     }
 
-        public void Hit()
+    Coroutine hitBlink;
+
+    public void Hit()
     {
+        if (!canMove || hitBlink != null)
+            return;
+
         health--;
         if(health <= 0)
         {
             Death();
             return;
         }
+
+        hitBlink = StartCoroutine(Blink());
+
         healths[health].transform.GetChild(0).gameObject.SetActive(false);
+    }
+
+    IEnumerator Blink()
+    {
+
+        float _t = 0;
+        
+        while(_t < noHitDuration)
+        {
+            _t += Time.deltaTime + .1f;
+            rend.enabled = !rend.enabled;
+            yield return new WaitForSeconds(.1f);
+        }
+
+        rend.enabled = true;
+        hitBlink = null;
     }
 
     void Death()
     {
+        animator.SetTrigger("Death");
         healths[0].transform.GetChild(0).gameObject.SetActive(false);
         canMove = false;
     }

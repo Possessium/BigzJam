@@ -22,7 +22,7 @@ MonoBehaviour:
   DistHealth: 100
   HealHealth: 100
   DetectionRange: 10
-  CacDistanceMaxHit: 2
+  CacDistanceMaxHit: 4
   DistRangeMaxHit: 10
   HealRangeMaxHeal: 7.5
   CooldownDuration: 2

@@ -23,21 +23,15 @@ public class Room : MonoBehaviour
         Z = z;
     }
 
-    public Door leftDoor1;
+    public Door leftDoor;
+ 
 
-    public Door leftDoor2;
+    public Door rightDoor;
 
-    public Door rightDoor1;
+    public Door topDoor;
 
-    public Door rightDoor2;
-
-    public Door topDoor1;
-
-    public Door topDoor2;
-
-    public Door bottomDoor1;
-
-    public Door bottomDoor2;
+    public Door bottomDoor;
+ 
 
     public List<Door> doors = new List<Door>();
 
@@ -58,37 +52,22 @@ public class Room : MonoBehaviour
             doors.Add(d);
             switch(d.doorType)
             {
-                case Door.DoorType.right1:
-                    rightDoor1 = d;
+                case Door.DoorType.right:
+                    rightDoor = d;
                     break;
 
-                case Door.DoorType.right2:
-                    rightDoor2 = d;
+                case Door.DoorType.left:
+                    leftDoor = d;
                     break;
 
-                case Door.DoorType.left1:
-                    leftDoor1 = d;
+                case Door.DoorType.top:
+                    topDoor = d;
                     break;
 
-                case Door.DoorType.left2:
-                    leftDoor2 = d;
+                case Door.DoorType.bottom:
+                    bottomDoor = d;
                     break;
 
-                case Door.DoorType.top1:
-                    topDoor1 = d;
-                    break;
-
-                case Door.DoorType.top2:
-                    topDoor2 = d;
-                    break;
-
-                case Door.DoorType.bottom1:
-                    bottomDoor1 = d;
-                    break;
-
-                case Door.DoorType.bottom2:
-                    bottomDoor2 = d;
-                    break;
             }
         }
         RoomController.instance.RegisterRoom(this);
@@ -110,48 +89,45 @@ public class Room : MonoBehaviour
         {
             switch(door.doorType)
             {
-                case Door.DoorType.right1:
+                case Door.DoorType.right:
                     if (GetRight() == null)
+                    {
                         door.gameObject.SetActive(false);
+                        door.Obstacle.SetActive(true);
+                        door.Collider.SetActive(true);
+                    }         
                     break;
 
-                case Door.DoorType.right2:
-                    if (GetRight() == null)
-                        door.gameObject.SetActive(false);
-                    break;
-
-                case Door.DoorType.left1:
+                case Door.DoorType.left:
                     if (GetLeft() == null)
+                    {
                         door.gameObject.SetActive(false);
+                        door.Obstacle.SetActive(true);
+                        door.Collider.SetActive(true);
+                    }
                     break;
 
-                case Door.DoorType.left2:
-                    if (GetLeft() == null)
-                        door.gameObject.SetActive(false);
-                    break;
-
-                case Door.DoorType.top1:
+                case Door.DoorType.top:
                     if (GetTop() == null)
+                    {
                         door.gameObject.SetActive(false);
+                        door.Obstacle.SetActive(true);
+                        door.Collider.SetActive(true);
+                    }
                     break;
 
-                case Door.DoorType.top2:
-                    if (GetTop() == null)
-                        door.gameObject.SetActive(false);
-                    break;
-
-                case Door.DoorType.bottom1:
+                case Door.DoorType.bottom:
                     if (GetBottom() == null)
+                    {
                         door.gameObject.SetActive(false);
-                    break;
-
-                case Door.DoorType.bottom2:
-                    if (GetBottom() == null)
-                        door.gameObject.SetActive(false);
+                        door.Obstacle.SetActive(true);
+                        door.Collider.SetActive(true);
+                    }
                     break;
             }
         }
     }
+
 
     public Room GetRight()
     {
@@ -159,6 +135,7 @@ public class Room : MonoBehaviour
         {
             return RoomController.instance.FindRoom(X + 1, Z);
         }
+       
 
         return null;
     }
@@ -169,7 +146,8 @@ public class Room : MonoBehaviour
         {
             return RoomController.instance.FindRoom(X - 1, Z);
         }
-        
+
+
         return null;
 
 

@@ -17,6 +17,7 @@ public class BJ_Enemy : MonoBehaviour
     [SerializeField] Image healthImage;
     [SerializeField] GameObject healthFeedback;
     [SerializeField] float scale;
+    [SerializeField] Animator animator;
     Vector3 _pos = Vector3.zero;
 
     public int Health { get; private set; } = 100;
@@ -27,6 +28,7 @@ public class BJ_Enemy : MonoBehaviour
     bool playerFound = false;
     bool allyFound = false;
     bool canHit = true;
+    bool canMove = false;
 
     void Start()
     {
@@ -41,10 +43,13 @@ public class BJ_Enemy : MonoBehaviour
             case EnemyType.Heal:
                 Health = data.HealHealth;
                 break;
+            case EnemyType.CacFat:
+                Health = data.CacHealth * 2;
+                break;
         }
 
-        renderer = GetComponentInChildren<SpriteRenderer>();
-        renderer.color = enemyType == EnemyType.Cac ? Color.red : enemyType == EnemyType.Dist ? Color.blue : Color.yellow;
+        //renderer = GetComponentInChildren<SpriteRenderer>();
+        //renderer.color = enemyType == EnemyType.Cac ? Color.red : enemyType == EnemyType.Dist ? Color.blue : Color.yellow;
         _pos = new Vector3(Random.Range(movementBounds.min.x, movementBounds.max.x), 0, Random.Range(movementBounds.min.z, movementBounds.max.z));
         agent.SetDestination(_pos);
     }
@@ -67,10 +72,18 @@ public class BJ_Enemy : MonoBehaviour
         }
     }
 
-
     void Update()
     {
-        healthImage.transform.parent.GetComponent<RectTransform>().eulerAngles = new Vector3(90, -transform.rotation.y, 0);
+        if (!canMove)
+        {
+            agent.isStopped = true;
+            return;
+        }
+        else
+            agent.isStopped = false;
+
+
+        healthImage.transform.parent.GetComponent<RectTransform>().eulerAngles = renderer.transform.eulerAngles = new Vector3(90, -transform.rotation.y, 0);
 
         if (playerFound)
         {
@@ -86,6 +99,11 @@ public class BJ_Enemy : MonoBehaviour
             
             LookForPlayer();
         }
+    }
+
+    public void SetMove(bool _s)
+    {
+        canMove = _s;
     }
 
     void LookForPlayer()
@@ -159,6 +177,7 @@ public class BJ_Enemy : MonoBehaviour
 
     IEnumerator CoolDown()
     {
+        animator.SetTrigger("Attack");
         canHit = false;
         yield return new WaitForSeconds(data.CooldownDuration);
         canHit = true;
@@ -204,45 +223,24 @@ public class BJ_Enemy : MonoBehaviour
     public void Hit(int _dmg)
     {
         Health -= _dmg;
-        healthImage.fillAmount = Health < 0 ? 0 : Health;
+        healthImage.fillAmount = Health < 0 ? 0 : ((float)Health / (enemyType == EnemyType.Cac ? data.CacHealth : enemyType == EnemyType.CacFat ? data.CacHealth * 2 : enemyType == EnemyType.Dist ? data.DistHealth : data.HealHealth));
         if (Health <= 0)
             Death();
         GameObject _damage = Instantiate(healthFeedback, healthImage.transform.parent);
         _damage.transform.eulerAngles = new Vector3(90, 0, 0);
         _damage.GetComponent<TMPro.TMP_Text>().SetText(_dmg.ToString());
-        StartCoroutine(DamageFeedback(_damage));
-    }
-
-    IEnumerator DamageFeedback(GameObject _go)
-    {
-        bool _right = _go.transform.localPosition.x < -2;
-        while (true)
-        {
-            _go.transform.position += new Vector3(_right ? 3f : -3f, 0, .5f) * Time.deltaTime * scale;
-
-            if (_right && _go.transform.localPosition.x > 2)
-                _right = false;
-            if (!_right && _go.transform.localPosition.x < -2)
-                _right = true;
-
-            if(_go.transform.localPosition.y > 5)
-            {
-                Destroy(_go);
-                yield break;
-            }
-
-            yield return new WaitForEndOfFrame();
-        }
     }
 
     void Death()
     {
-
+        Destroy(this.gameObject);
+        BJ_GameManager.I.AddScore(enemyType == EnemyType.Cac ? data.CacValue : enemyType == EnemyType.CacFat ? data.CacFatValue : enemyType == EnemyType.Dist ? data.DistValue : data.HealValue);
     }
 
     enum EnemyType
     {
         Cac,
+        CacFat,
         Dist,
         Heal
     }
