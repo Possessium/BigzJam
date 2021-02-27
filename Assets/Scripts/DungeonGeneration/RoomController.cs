@@ -38,6 +38,7 @@ public class RoomController : MonoBehaviour
 
     void Start()
     {
+      
 
     }
 
@@ -97,6 +98,7 @@ public class RoomController : MonoBehaviour
         {
             return;
         }
+        
         RoomInfo newRoomData = new RoomInfo();
         newRoomData.name = name;
         newRoomData.x = x;
@@ -122,19 +124,21 @@ public class RoomController : MonoBehaviour
             return;
 
         if (!DoesRoomExist(currentLoadRoomData.x, currentLoadRoomData.z))
-        {        
+        {
+           
 
             room.transform.position = new Vector3(
                 currentLoadRoomData.x * room.Width,
                 0,
                 currentLoadRoomData.z * room.Height
-                
+               
             );
 
             room.X = currentLoadRoomData.x;
             room.Z = currentLoadRoomData.z;
             room.name = currentWorldName + "-" + currentLoadRoomData.name + " " + room.X + ", " + room.Z;
             room.transform.parent = transform;
+            
 
             isLoadingRoom = false;
 

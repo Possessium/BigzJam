@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Door : MonoBehaviour
 {
+    [SerializeField] GameObject obstacle, collider;
+
+    public GameObject Obstacle { get { return obstacle; } }
+    public GameObject Collider { get { return collider; } }
     public enum DoorType
     {
-        left1, left2, right1, right2, top1, top2, bottom1, bottom2
+        left, right, top, bottom
     }
+
 
     public DoorType doorType;
 }
