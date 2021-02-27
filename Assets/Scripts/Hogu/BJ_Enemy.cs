@@ -19,6 +19,9 @@ public class BJ_Enemy : MonoBehaviour
     [SerializeField] float scale;
     [SerializeField] Animator animator;
     Vector3 _pos = Vector3.zero;
+    [SerializeField] GameObject freeze;
+
+    [SerializeField] GameObject fireObject;
 
     public int Health { get; private set; } = 100;
 
@@ -29,9 +32,11 @@ public class BJ_Enemy : MonoBehaviour
     bool allyFound = false;
     bool canHit = true;
     bool canMove = false;
+    bool started = false;
 
-    void Start()
+    public void Init()
     {
+        started = true;
         switch (enemyType)
         {
             case EnemyType.Cac:
@@ -50,7 +55,8 @@ public class BJ_Enemy : MonoBehaviour
 
         //renderer = GetComponentInChildren<SpriteRenderer>();
         //renderer.color = enemyType == EnemyType.Cac ? Color.red : enemyType == EnemyType.Dist ? Color.blue : Color.yellow;
-        _pos = new Vector3(Random.Range(movementBounds.min.x, movementBounds.max.x), 0, Random.Range(movementBounds.min.z, movementBounds.max.z));
+        _pos = new Vector3(Random.Range(movementBounds.min.x, movementBounds.max.x), transform.position.y, Random.Range(movementBounds.min.z, movementBounds.max.z));
+        
         agent.SetDestination(_pos);
     }
 
@@ -74,6 +80,9 @@ public class BJ_Enemy : MonoBehaviour
 
     void Update()
     {
+        if (!started)
+            return;
+
         if (!canMove)
         {
             agent.isStopped = true;
@@ -83,7 +92,7 @@ public class BJ_Enemy : MonoBehaviour
             agent.isStopped = false;
 
 
-        healthImage.transform.parent.GetComponent<RectTransform>().eulerAngles = renderer.transform.eulerAngles = new Vector3(90, -transform.rotation.y, 0);
+        healthImage.transform.parent.GetComponent<RectTransform>().eulerAngles = freeze.transform.eulerAngles = renderer.transform.eulerAngles = new Vector3(90, -transform.rotation.y, 0);
 
         if (playerFound)
         {
@@ -103,6 +112,8 @@ public class BJ_Enemy : MonoBehaviour
 
     public void SetMove(bool _s)
     {
+        if (!started)
+            return;
         canMove = _s;
     }
 
@@ -118,7 +129,7 @@ public class BJ_Enemy : MonoBehaviour
 
         if (Vector3.Distance(_pos, new Vector3(transform.position.x, 0, transform.position.z)) < 1)
         {
-            _pos = new Vector3(Random.Range(movementBounds.min.x, movementBounds.max.x), 0, Random.Range(movementBounds.min.z, movementBounds.max.z));
+            _pos = new Vector3(Random.Range(movementBounds.min.x, movementBounds.max.x), transform.position.y, Random.Range(movementBounds.min.z, movementBounds.max.z));
             agent.SetDestination(_pos);
         }
     }
@@ -144,8 +155,8 @@ public class BJ_Enemy : MonoBehaviour
 
                 if (Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(targetPlayer.transform.position.x, 0, targetPlayer.transform.position.z)) > data.DistRangeMaxHit)
                 {
-                    _pos = targetPlayer.position;
-                    _pos.y = 0;
+                    _pos = new Vector3(targetPlayer.position.x, transform.position.y, targetPlayer.transform.position.z);
+                    //_pos.y = 0;
                 }
 
                 else
@@ -153,7 +164,7 @@ public class BJ_Enemy : MonoBehaviour
                     _pos = transform.position;
                     if (canHit)
                     {
-                        targetPlayer.GetComponent<BJ_Player>().Hit();
+                        Instantiate(fireObject, transform.position, Quaternion.LookRotation(new Vector3(targetPlayer.position.x, transform.position.y, targetPlayer.position.z) - transform.position));
                         StartCoroutine(CoolDown());
                     }
                 }
@@ -208,10 +219,10 @@ public class BJ_Enemy : MonoBehaviour
         if (Vector3.Distance(_pos, new Vector3(transform.position.x, 0, transform.position.z)) < data.HealRangeMaxHeal)
         {
             _pos = transform.position;
-            _pos.y = 0;
+            //_pos.y = 0;
             if (canHit)
             {
-                // HEAL
+                targetAlly.Hit(-data.HealValue);
                 Debug.Log("SOIIIIN");
                 StartCoroutine(CoolDown());
             }
@@ -222,19 +233,33 @@ public class BJ_Enemy : MonoBehaviour
 
     public void Hit(int _dmg)
     {
+        if (!started)
+            return;
+
         Health -= _dmg;
+        if (Health > (enemyType == EnemyType.Cac ? data.CacHealth : enemyType == EnemyType.CacFat ? data.CacHealth * 2 : enemyType == EnemyType.Dist ? data.DistHealth : data.HealHealth))
+            Health = enemyType == EnemyType.Cac ? data.CacHealth : enemyType == EnemyType.CacFat ? data.CacHealth * 2 : enemyType == EnemyType.Dist ? data.DistHealth : data.HealHealth;
         healthImage.fillAmount = Health < 0 ? 0 : ((float)Health / (enemyType == EnemyType.Cac ? data.CacHealth : enemyType == EnemyType.CacFat ? data.CacHealth * 2 : enemyType == EnemyType.Dist ? data.DistHealth : data.HealHealth));
         if (Health <= 0)
             Death();
-        GameObject _damage = Instantiate(healthFeedback, healthImage.transform.parent);
-        _damage.transform.eulerAngles = new Vector3(90, 0, 0);
-        _damage.GetComponent<TMPro.TMP_Text>().SetText(_dmg.ToString());
+        if(_dmg < 0)
+        {
+            GameObject _damage = Instantiate(healthFeedback, healthImage.transform.parent);
+            _damage.transform.eulerAngles = new Vector3(90, 0, 0);
+            _damage.GetComponent<TMPro.TMP_Text>().SetText(_dmg.ToString());
+        }
     }
 
     void Death()
     {
         Destroy(this.gameObject);
         BJ_GameManager.I.AddScore(enemyType == EnemyType.Cac ? data.CacValue : enemyType == EnemyType.CacFat ? data.CacFatValue : enemyType == EnemyType.Dist ? data.DistValue : data.HealValue);
+    }
+
+    public void SetFreeze(bool _s)
+    {
+        canMove = !_s;
+        freeze.SetActive(_s);
     }
 
     enum EnemyType

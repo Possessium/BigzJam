@@ -6,10 +6,16 @@ public class BJ_NovaSpell : BJ_Spell
 {
     [SerializeField] float duration;
     [SerializeField] float cooldown;
+    [SerializeField] float range;
+    List<BJ_Enemy> hitEnemies = new List<BJ_Enemy>();
 
     float timer = 0;
-    float hitTimer = 0;
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(255, 0, 0, .5f);
+        Gizmos.DrawSphere(transform.position, range);
+    }
 
     private void Update()
     {
@@ -18,23 +24,23 @@ public class BJ_NovaSpell : BJ_Spell
         if (timer > duration)
             Destroy(this.gameObject);
 
-        cooldown += Time.deltaTime;
+        Collider[] _hits = Physics.OverlapSphere(transform.position, range, enemyLayer);
 
-        if(hitTimer > cooldown)
+        foreach (Collider _hit in _hits)
         {
-            hitTimer = 0;
-
-            Collider[] _hits = Physics.OverlapSphere(transform.position, 5, enemyLayer);
-
-            foreach (Collider _hit in _hits)
+            if (_hit.GetComponent<BJ_Enemy>() && !hitEnemies.Contains(_hit.GetComponent<BJ_Enemy>()))
             {
-                if (_hit.GetComponent<BJ_Enemy>())
-                {
-                    // + Freeze
-                }
+                _hit.GetComponent<BJ_Enemy>().SetFreeze(true);
+                hitEnemies.Add(_hit.GetComponent<BJ_Enemy>());
             }
-
         }
+    }
 
+    private void OnDestroy()
+    {
+        foreach (BJ_Enemy _e in hitEnemies)
+        {
+            _e.SetFreeze(false);
+        }
     }
 }

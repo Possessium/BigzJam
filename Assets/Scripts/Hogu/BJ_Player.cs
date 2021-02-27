@@ -41,7 +41,7 @@ public class BJ_Player : MonoBehaviour
 
     [SerializeField] GameObject healthSource;
     [SerializeField] List<GameObject> healths;
-    [SerializeField] Canvas ui;
+    [SerializeField] GameObject ui;
 
 
     [SerializeField] bool canMove = false;

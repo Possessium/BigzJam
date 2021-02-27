@@ -32,7 +32,7 @@ public class RoomController : MonoBehaviour
 
     bool isLoadingRoom = false;
     bool spawnedBossRoom = false;
-    bool updatedRooms = false;
+    [SerializeField] bool updatedRooms = false;
 
     void Awake()
     {
@@ -152,7 +152,7 @@ public class RoomController : MonoBehaviour
             floor.Clear();
             floor.Add(room.Floor.gameObject);
             Navmesh.SetNavMeshElements(floor);
-            Navmesh.BuildNavMesh();
+            DungeonGenerator.I.AddGeneratedRoom();
 
             /////
         }
@@ -171,6 +171,12 @@ public class RoomController : MonoBehaviour
     public Room FindRoom(int x, int z)
     {
         return loadedRooms.Find(item => item.X == x && item.Z == z);
+    }
+
+    public void ClearRooms()
+    {
+        loadedRooms.Clear();
+        updatedRooms = spawnedBossRoom = false;
     }
 
 }

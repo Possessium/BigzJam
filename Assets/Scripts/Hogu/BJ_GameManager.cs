@@ -24,6 +24,7 @@ public class BJ_GameManager : MonoBehaviour
     float time = 0;
     bool playTimer = false;
     bool gameStarted = false;
+    bool roomReady = false;
 
     private void Awake()
     {
@@ -50,16 +51,28 @@ public class BJ_GameManager : MonoBehaviour
         scoreText.text = score.ToString("000000");
     }
 
+    public void RoomReady()
+    {
+        roomReady = true;
+
+        if(gameStarted)
+            StartFloor();
+    }
 
     public void StartFloor()
     {
+        if (!roomReady)
+            return;
+
+        gameStarted = true;
         BJ_Enemy[] _enemies = FindObjectsOfType<BJ_Enemy>();
         foreach (BJ_Enemy _en in _enemies)
         {
             _en.SetMove(true);
         }
         pauseUI.SetActive(false);
-        transition.SetActive(true);
+        if(transition)
+            transition.SetActive(true);
         playTimer = true;
         player.SetMove(true);
     }
@@ -86,9 +99,12 @@ public class BJ_GameManager : MonoBehaviour
 
     public void NextFloor()
     {
-        transition.SetActive(true);
+        if(transition)
+            transition.SetActive(true);
+        FindObjectOfType<BJ_Player>().transform.position = new Vector3(0, 70, 0);
         playTimer = false;
         player.SetMove(false);
+        DungeonGenerator.I.CreateDungeon();
 
         int _timeScore = 10000 - (int)time;
         if (_timeScore < 500)

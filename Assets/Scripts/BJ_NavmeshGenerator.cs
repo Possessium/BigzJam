@@ -9,8 +9,14 @@ public class BJ_NavmeshGenerator : MonoBehaviour
     private List<GameObject> navMeshElements = new List<GameObject>();
     public void SetNavMeshElements(List<GameObject> values)
     {
-        navMeshElements.Clear();
+        //navMeshElements.Clear();
         navMeshElements.AddRange(values);
+    }
+
+    public void ResetList()
+    {
+        NavMesh.RemoveAllNavMeshData();
+        navMeshElements.Clear();
     }
 
     private void Awake()

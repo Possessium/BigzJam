@@ -16,6 +16,8 @@ public class BJ_SpellItem : MonoBehaviour
 
     private void Start()
     {
+        typeSpell = (SpellType)Random.Range(0, 5);
+
         SwitchType(TypeSpell);
     }
 

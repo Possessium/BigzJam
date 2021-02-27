@@ -32,8 +32,10 @@ public class DungeonCrawlerController : MonoBehaviour
         }
         
         int iterations = Random.Range(dungeonData.iterationMin, dungeonData.iterationMax);
-        
-        for(int i = 0; i < iterations; i++)
+        DungeonGenerator.I.SetRoomCount(iterations);
+
+
+        for (int i = 0; i < iterations; i++)
         {
             foreach(DungeonCrawler dungeonCrawler in dungeonCrawlers)
             {

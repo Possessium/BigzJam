@@ -96,9 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 6704789748536589591}
-  lineSprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  wallSprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  novaSprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  coneSprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  areaSprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
+  lineSprite: {fileID: 7363500786761609422, guid: f4eef43e41ed574479640d76f3b6a45e, type: 3}
+  wallSprite: {fileID: 5860880220168725377, guid: f4eef43e41ed574479640d76f3b6a45e, type: 3}
+  novaSprite: {fileID: 7521776164603160111, guid: f4eef43e41ed574479640d76f3b6a45e, type: 3}
+  coneSprite: {fileID: -3338159118471105260, guid: f4eef43e41ed574479640d76f3b6a45e, type: 3}
+  areaSprite: {fileID: 1649736804516412609, guid: f4eef43e41ed574479640d76f3b6a45e, type: 3}
   typeSpell: 0
