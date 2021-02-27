@@ -1,0 +1,336 @@
+fileFormatVersion: 2
+guid: 55ac3071dcb72d44595cda3b7561945b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8693849374755995612
+    second: cac 1
+  - first:
+      213: 3082707621552517728
+    second: cac cac++_1
+  - first:
+      213: -5606204202623675475
+    second: cac 2
+  - first:
+      213: -1681996900652419660
+    second: cac cac++_3
+  - first:
+      213: 50342493558360767
+    second: cac 3
+  - first:
+      213: 1066063252825277699
+    second: cac cac++_5
+  - first:
+      213: 9178134824533045083
+    second: cac 4
+  - first:
+      213: 6987575117232789831
+    second: cac cac++_7
+  - first:
+      213: 1649577738445799804
+    second: cac ++ 1
+  - first:
+      213: 1621118925663079672
+    second: cac cac++_9
+  - first:
+      213: 2310169745877007534
+    second: cac ++ 2
+  - first:
+      213: -2902921188075774720
+    second: cac cac++_11
+  - first:
+      213: -8247198489722511377
+    second: cac ++ 3
+  - first:
+      213: -4709836960943980907
+    second: cac cac++_13
+  - first:
+      213: 6304064085165821234
+    second: cac ++ 4
+  - first:
+      213: -6347527847870867523
+    second: cac cac++_15
+  - first:
+      213: 2071294625733247203
+    second: cac cac++_16
+  - first:
+      213: -7656560565731841275
+    second: cac cac++_17
+  - first:
+      213: -193065580023556184
+    second: cac cac++_18
+  - first:
+      213: -221374239837698838
+    second: cac cac++_19
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cac 1
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 402
+        width: 235
+        height: 317
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf3511c1f1c6a870800000000000000
+      internalID: 8693849374755995612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac 2
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 402
+        width: 361
+        height: 392
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da3505c0bf2c232b0800000000000000
+      internalID: -5606204202623675475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac 3
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 402
+        width: 347
+        height: 325
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fba47ad2b3ad2b000800000000000000
+      internalID: 50342493558360767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac 4
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 396
+        width: 276
+        height: 339
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5f2fecbef84f5f70800000000000000
+      internalID: 9178134824533045083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac ++ 1
+      rect:
+        serializedVersion: 2
+        x: 2071
+        y: 402
+        width: 277
+        height: 317
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c714479963a74e610800000000000000
+      internalID: 1649577738445799804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac ++ 2
+      rect:
+        serializedVersion: 2
+        x: 2485
+        y: 402
+        width: 389
+        height: 392
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac7ad1e42f5f0020800000000000000
+      internalID: 2310169745877007534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac ++ 3
+      rect:
+        serializedVersion: 2
+        x: 3019
+        y: 402
+        width: 367
+        height: 349
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fef93fb4ba01c8d80800000000000000
+      internalID: -8247198489722511377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac ++ 4
+      rect:
+        serializedVersion: 2
+        x: 3579
+        y: 396
+        width: 290
+        height: 339
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d4b9592e88c7750800000000000000
+      internalID: 6304064085165821234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 477d5e7444937da48ae47faa7c6beafc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
