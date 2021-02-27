@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mort_player
+  m_Name: Player death
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -6548005800980587410, guid: 0a8a0108068df0b44ab734bcf9cc6aa8, type: 3}
+      value: {fileID: 1564567087262828876, guid: 66a82dcf37c2d74419e28b4f9dd2cbf7, type: 3}
     - time: 0.083333336
-      value: {fileID: 3338612696213406228, guid: 0a8a0108068df0b44ab734bcf9cc6aa8, type: 3}
+      value: {fileID: -2156968772087846992, guid: 66a82dcf37c2d74419e28b4f9dd2cbf7, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,8 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -6548005800980587410, guid: 0a8a0108068df0b44ab734bcf9cc6aa8, type: 3}
-    - {fileID: 3338612696213406228, guid: 0a8a0108068df0b44ab734bcf9cc6aa8, type: 3}
+    - {fileID: 1564567087262828876, guid: 66a82dcf37c2d74419e28b4f9dd2cbf7, type: 3}
+    - {fileID: -2156968772087846992, guid: 66a82dcf37c2d74419e28b4f9dd2cbf7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
