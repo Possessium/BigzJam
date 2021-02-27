@@ -1,0 +1,552 @@
+fileFormatVersion: 2
+guid: 33e1e0cb921edea4a8dbbe3deb6bcdbb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8249231962416399744
+    second: cac 01
+  - first:
+      213: -8399009502878842040
+    second: ennemies_1
+  - first:
+      213: -7008199599283185260
+    second: cac 02
+  - first:
+      213: 7206619158549056529
+    second: ennemies_3
+  - first:
+      213: 3089664576283217194
+    second: cac 03
+  - first:
+      213: 221046389886824031
+    second: ennemies_5
+  - first:
+      213: -3528999006302103845
+    second: cac 04
+  - first:
+      213: -7367772751591456703
+    second: ennemies_7
+  - first:
+      213: -6256141713458911062
+    second: cac++ 01
+  - first:
+      213: -5135876759480211879
+    second: ennemies_9
+  - first:
+      213: 7265487020949956740
+    second: cac++ 02
+  - first:
+      213: 608902631263888023
+    second: ennemies_11
+  - first:
+      213: -6113046953798384319
+    second: cac++ 03
+  - first:
+      213: -2434623123950342394
+    second: ennemies_13
+  - first:
+      213: 4644374433146443141
+    second: cac++ 04
+  - first:
+      213: -4977147730471229084
+    second: ennemies_15
+  - first:
+      213: -5914009613491271737
+    second: ennemies_16
+  - first:
+      213: -2873604326019289353
+    second: ennemies_17
+  - first:
+      213: -2005948692145744892
+    second: ennemies_18
+  - first:
+      213: -5479737083149972567
+    second: ennemies_19
+  - first:
+      213: 3821171565328960975
+    second: distance 03
+  - first:
+      213: -7033528309127107809
+    second: distance 04
+  - first:
+      213: 9198284814940197251
+    second: healer 02
+  - first:
+      213: 5444287988724430967
+    second: distance 01
+  - first:
+      213: -5052451072565653742
+    second: distance bullet
+  - first:
+      213: 350716594480239751
+    second: distance 02
+  - first:
+      213: 8902917647497890691
+    second: healer 01
+  - first:
+      213: -7153478600101500745
+    second: healer 03
+  - first:
+      213: -5200172604336792745
+    second: healer 04
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cac 01
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 2465
+        width: 235
+        height: 317
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a3f5a8c37d48d80800000000000000
+      internalID: -8249231962416399744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac 02
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 2465
+        width: 361
+        height: 392
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 499d0b1789fddbe90800000000000000
+      internalID: -7008199599283185260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac 03
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 2465
+        width: 347
+        height: 325
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2d0878ff81b0ea20800000000000000
+      internalID: 3089664576283217194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac 04
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 2459
+        width: 276
+        height: 339
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd618a8e91a760fc0800000000000000
+      internalID: -3528999006302103845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac++ 01
+      rect:
+        serializedVersion: 2
+        x: 2071
+        y: 2465
+        width: 277
+        height: 317
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa827c01248bd29a0800000000000000
+      internalID: -6256141713458911062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac++ 02
+      rect:
+        serializedVersion: 2
+        x: 2485
+        y: 2465
+        width: 389
+        height: 392
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 488eeeb83f134d460800000000000000
+      internalID: 7265487020949956740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac++ 03
+      rect:
+        serializedVersion: 2
+        x: 3019
+        y: 2465
+        width: 367
+        height: 349
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145409f0f281a2ba0800000000000000
+      internalID: -6113046953798384319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cac++ 04
+      rect:
+        serializedVersion: 2
+        x: 3579
+        y: 2459
+        width: 290
+        height: 339
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5859993a0f1247040800000000000000
+      internalID: 4644374433146443141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: distance 03
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 1945
+        width: 183
+        height: 335
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcd81411b47870530800000000000000
+      internalID: 3821171565328960975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: distance 04
+      rect:
+        serializedVersion: 2
+        x: 1351
+        y: 1941
+        width: 164
+        height: 313
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b23d0a443e36e90800000000000000
+      internalID: -7033528309127107809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healer 02
+      rect:
+        serializedVersion: 2
+        x: 2225
+        y: 1960
+        width: 246
+        height: 336
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3815169fd4fd6af70800000000000000
+      internalID: 9198284814940197251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: distance 01
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 1943
+        width: 259
+        height: 301
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77878d6a41ffd8b40800000000000000
+      internalID: 5444287988724430967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: distance bullet
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 2025
+        width: 79
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21fceaeb48612e9b0800000000000000
+      internalID: -5052451072565653742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: distance 02
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 1943
+        width: 211
+        height: 303
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78454de62eefdd400800000000000000
+      internalID: 350716594480239751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healer 01
+      rect:
+        serializedVersion: 2
+        x: 1801
+        y: 1956
+        width: 256
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38b0ba34e648d8b70800000000000000
+      internalID: 8902917647497890691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healer 03
+      rect:
+        serializedVersion: 2
+        x: 2656
+        y: 1962
+        width: 304
+        height: 334
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b8679c2d1db9bc90800000000000000
+      internalID: -7153478600101500745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healer 04
+      rect:
+        serializedVersion: 2
+        x: 3134
+        y: 1958
+        width: 303
+        height: 273
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b99cb619645d7b0800000000000000
+      internalID: -5200172604336792745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: be89c395c2a232c40bb6ad385bb3b9d0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
