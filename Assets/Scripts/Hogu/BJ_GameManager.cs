@@ -10,9 +10,13 @@ public class BJ_GameManager : MonoBehaviour
     [SerializeField] TMP_Text scoreText;
     [SerializeField] TMP_Text timeText;
     [SerializeField] BJ_Player player;
-    [SerializeField] string startSceneName;
     [SerializeField] GameObject transition;
     [SerializeField] GameObject pauseUI;
+
+    [SerializeField] AudioClip introLoop;
+    [SerializeField] AudioClip gameMusic;
+    [SerializeField] AudioClip endMusic;
+    [SerializeField] AudioSource audioSource;
 
     #region EndUI
     [SerializeField] GameObject deathUI;
@@ -37,6 +41,12 @@ public class BJ_GameManager : MonoBehaviour
         {
             time += Time.deltaTime;
             timeText.text = time.ToString("000");
+        }
+        if (!audioSource.isPlaying)
+        {
+            audioSource.clip = introLoop;
+            audioSource.Play();
+            audioSource.loop = true;
         }
     }
 
@@ -63,6 +73,13 @@ public class BJ_GameManager : MonoBehaviour
     {
         if (!roomReady)
             return;
+
+        if(!gameStarted)
+        {
+            audioSource.clip = gameMusic;
+            audioSource.Play();
+            audioSource.loop = true;
+        }
 
         gameStarted = true;
         BJ_Enemy[] _enemies = FindObjectsOfType<BJ_Enemy>();
@@ -93,7 +110,8 @@ public class BJ_GameManager : MonoBehaviour
 
             highScore.text = score.ToString("000000");
         }
-
+        audioSource.clip = endMusic;
+        audioSource.Play();
         deathUI.SetActive(true);
     }
 
@@ -133,7 +151,12 @@ public class BJ_GameManager : MonoBehaviour
 
     public void Restart()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(startSceneName);
+        deathUI.SetActive(false);
+        score = 0;
+        time = 0;
+        player.Respawn();
+        AddScore(-10000);
+        NextFloor();
     }
 
     private void OnApplicationQuit()

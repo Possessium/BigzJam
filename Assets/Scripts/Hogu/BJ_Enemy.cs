@@ -139,6 +139,7 @@ public class BJ_Enemy : MonoBehaviour
         switch (enemyType)
         {
             case EnemyType.Cac:
+            case EnemyType.CacFat:
 
                 _pos = targetPlayer.transform.position;
                 if (Vector3.Distance(new Vector3(targetPlayer.transform.position.x, 0, targetPlayer.transform.position.z), new Vector3(transform.position.x, 0, transform.position.z)) < data.CacDistanceMaxHit)
