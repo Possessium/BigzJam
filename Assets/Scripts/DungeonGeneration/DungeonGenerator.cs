@@ -18,7 +18,14 @@ public class DungeonGenerator : MonoBehaviour
 
     private int[] Random(int length)
     {
-        int[] randomList = new int[] { length, length - 1, length - 2 };
+        int[] randomList = new int[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            randomList[i] = i + 1;
+           
+        }
+
         randomList = randomList.OrderBy(i => Guid.NewGuid()).ToArray();
 
         return randomList;   
@@ -32,7 +39,7 @@ public class DungeonGenerator : MonoBehaviour
         
         foreach(Vector2Int roomLocation in rooms)
         {
-            int[] randomList = Random(3);
+            int[] randomList = Random(5);
             int number = randomList[0];
             RoomController.instance.LoadRoom("Room" + number, roomLocation.x, roomLocation.y);
 
