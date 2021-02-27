@@ -204,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6159344765182021702, guid: 5ce339a5c07fe78478ea748b46365807, type: 3}
       propertyPath: doorType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8089095903302324039, guid: 5ce339a5c07fe78478ea748b46365807, type: 3}
       propertyPath: doorType
@@ -237,8 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9dddb1f53521c94c9a80eae534314be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 92
-  Height: 52
+  Width: 96
+  Height: 54
   X: 0
   Z: 0
   floor: {fileID: 24411619}

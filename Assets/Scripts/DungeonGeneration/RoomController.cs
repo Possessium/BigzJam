@@ -148,8 +148,7 @@ public class RoomController : MonoBehaviour
 
             loadedRooms.Add(room);
 
-            if (!room.Floor)
-                Debug.Log(room.name);
+            
             floor.Clear();
             floor.Add(room.Floor.gameObject);
             Navmesh.SetNavMeshElements(floor);
