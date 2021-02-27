@@ -34,7 +34,6 @@ public class DungeonGenerator : MonoBehaviour
         {
             int[] randomList = Random(3);
             int number = randomList[0];
-            Debug.Log($"{number}");
             RoomController.instance.LoadRoom("Room" + number, roomLocation.x, roomLocation.y);
 
 

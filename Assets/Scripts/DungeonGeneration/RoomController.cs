@@ -16,6 +16,9 @@ public class RoomInfo
 
 public class RoomController : MonoBehaviour
 {
+    [SerializeField] BJ_NavmeshGenerator Navmesh;
+
+    public List<GameObject> floor = new List<GameObject>();
 
     public static RoomController instance;
 
@@ -64,7 +67,7 @@ public class RoomController : MonoBehaviour
             {
                 foreach(Room room in loadedRooms)
                 {
-                    room.RemoveUnconnectedDoors();
+                    room.RemoveUnconnectedDoors();             
                 }
                 updatedRooms = true;
             }
@@ -104,6 +107,7 @@ public class RoomController : MonoBehaviour
         newRoomData.x = x;
         newRoomData.z = z;
 
+        
         loadRoomQueue.Enqueue(newRoomData);
     }
 
@@ -125,8 +129,8 @@ public class RoomController : MonoBehaviour
 
         if (!DoesRoomExist(currentLoadRoomData.x, currentLoadRoomData.z))
         {
-           
 
+            
             room.transform.position = new Vector3(
                 currentLoadRoomData.x * room.Width,
                 0,
@@ -143,6 +147,13 @@ public class RoomController : MonoBehaviour
             isLoadingRoom = false;
 
             loadedRooms.Add(room);
+
+            if (!room.Floor)
+                Debug.Log(room.name);
+            floor.Clear();
+            floor.Add(room.Floor.gameObject);
+            Navmesh.SetNavMeshElements(floor);
+            Navmesh.BuildNavMesh();
 
             /////
         }

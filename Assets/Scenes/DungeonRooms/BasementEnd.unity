@@ -178,5 +178,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6505335995859025282, guid: a2b9aae8e46566b47819dec8415be476, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505335995859025282, guid: a2b9aae8e46566b47819dec8415be476, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505335995859025284, guid: a2b9aae8e46566b47819dec8415be476, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505335997329369835, guid: a2b9aae8e46566b47819dec8415be476, type: 3}
+      propertyPath: floor
+      value: 
+      objectReference: {fileID: 6505335997307590410}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2b9aae8e46566b47819dec8415be476, type: 3}
+--- !u!1 &6505335997307590410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6505335995859025283, guid: a2b9aae8e46566b47819dec8415be476, type: 3}
+  m_PrefabInstance: {fileID: 6505335997307590409}
+  m_PrefabAsset: {fileID: 0}

@@ -241,8 +241,14 @@ MonoBehaviour:
   Height: 52
   X: 0
   Z: 0
+  floor: {fileID: 24411619}
   leftDoor: {fileID: 0}
   rightDoor: {fileID: 0}
   topDoor: {fileID: 0}
   bottomDoor: {fileID: 0}
   doors: []
+--- !u!1 &24411619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1759369066, guid: 5ce339a5c07fe78478ea748b46365807, type: 3}
+  m_PrefabInstance: {fileID: 24411616}
+  m_PrefabAsset: {fileID: 0}

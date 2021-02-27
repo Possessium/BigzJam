@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_Carve
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3152362714941944889, guid: aa94fd94c138a624b8dab2b94e902fc3, type: 3}
+      propertyPath: floor
+      value: 
+      objectReference: {fileID: 3152362714923829724}
     - target: {fileID: 4598276129601462584, guid: aa94fd94c138a624b8dab2b94e902fc3, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -192,3 +196,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa94fd94c138a624b8dab2b94e902fc3, type: 3}
+--- !u!1 &3152362714923829724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3152362713470018385, guid: aa94fd94c138a624b8dab2b94e902fc3, type: 3}
+  m_PrefabInstance: {fileID: 3152362714923829723}
+  m_PrefabAsset: {fileID: 0}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Room : MonoBehaviour
 {
 
@@ -14,8 +15,9 @@ public class Room : MonoBehaviour
     public int Z;
 
     private bool updatedDoors = false;
-    
-   
+
+    [SerializeField] private GameObject floor;
+    public GameObject Floor { get { return floor; } }
 
     public Room(int x, int z)
     {

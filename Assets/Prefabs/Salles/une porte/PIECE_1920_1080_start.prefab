@@ -993,7 +993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacle: {fileID: 4769368958916711322}
   collider: {fileID: 2982395483075068800}
-  doorType: 1
+  doorType: 0
 --- !u!1 &3252198954279960482
 GameObject:
   m_ObjectHideFlags: 0
