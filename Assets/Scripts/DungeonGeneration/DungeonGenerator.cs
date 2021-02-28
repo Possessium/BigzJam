@@ -66,19 +66,40 @@ public class DungeonGenerator : MonoBehaviour
     }
 
 
+
     private void SpawnRooms(IEnumerable<Vector2Int> rooms)
     {
+        Dictionary<int, int> map = new Dictionary<int, int>();
 
         RoomController.instance.LoadRoom("Start", 0, 0);
-        
-        foreach(Vector2Int roomLocation in rooms)
+
+        foreach (Vector2Int roomLocation in rooms)
         {
-            int[] randomList = Random(5);
+
+            int[] randomList = Random(9);
             int number = randomList[0];
+
             RoomController.instance.LoadRoom("Room" + number, roomLocation.x, roomLocation.y);
 
+           /* if (map.ContainsKey(number))
+            {
+                var val = map[number];
+                map.Remove(number);
+                map.Add(number, val + 1);
+                RoomController.instance.LoadRoom("Room3", roomLocation.x, roomLocation.y);
+            }
+            else
+            {
+                map.Add(number, 1);
+                
+            }*/
 
+            
+
+          
         }
+
+
     }
 
     [SerializeField] int totalRooms = 0;
@@ -102,7 +123,8 @@ public class DungeonGenerator : MonoBehaviour
                 _en.Init();
             }
 
-            BJ_GameManager.I.RoomReady();
+            if(BJ_GameManager.I)
+                BJ_GameManager.I.RoomReady();
 
             roomCount = 0;
             totalRooms = 0;
