@@ -67,7 +67,8 @@ public class RoomController : MonoBehaviour
             {
                 foreach(Room room in loadedRooms)
                 {
-                    room.RemoveUnconnectedDoors();             
+                    room.RemoveUnconnectedDoors();
+                    DungeonGenerator.I.DungeonGenerated();
                 }
                 updatedRooms = true;
             }
