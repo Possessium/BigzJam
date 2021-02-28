@@ -174,9 +174,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6425729076018521768, guid: bb60b76f3c96e38438527d47f56422b9, type: 3}
+      propertyPath: m_Extents.z
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7061839934918816145, guid: bb60b76f3c96e38438527d47f56422b9, type: 3}
       propertyPath: m_Name
       value: PIECE_1920_1080_flowers
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010391574763846077, guid: bb60b76f3c96e38438527d47f56422b9, type: 3}
+      propertyPath: m_Size.z
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb60b76f3c96e38438527d47f56422b9, type: 3}
