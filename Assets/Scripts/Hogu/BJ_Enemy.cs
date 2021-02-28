@@ -55,7 +55,7 @@ public class BJ_Enemy : MonoBehaviour
 
         //renderer = GetComponentInChildren<SpriteRenderer>();
         //renderer.color = enemyType == EnemyType.Cac ? Color.red : enemyType == EnemyType.Dist ? Color.blue : Color.yellow;
-        _pos = new Vector3(Random.Range(movementBounds.min.x, movementBounds.max.x), transform.position.y, Random.Range(movementBounds.min.z, movementBounds.max.z));
+        _pos = new Vector3(transform.parent.position.x, 0, transform.parent.position.z) + new Vector3(Random.Range(movementBounds.min.x, movementBounds.max.x), transform.position.y, Random.Range(movementBounds.min.z, movementBounds.max.z));
         
         agent.SetDestination(_pos);
     }
@@ -66,7 +66,7 @@ public class BJ_Enemy : MonoBehaviour
         {
             // bounds
             Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(movementBounds.center, movementBounds.size);
+            Gizmos.DrawWireCube(new Vector3(transform.parent.position.x, 0, transform.parent.position.z) + movementBounds.center, movementBounds.size);
 
             // next pos
             Gizmos.color = Color.magenta;
@@ -129,7 +129,7 @@ public class BJ_Enemy : MonoBehaviour
 
         if (Vector3.Distance(_pos, new Vector3(transform.position.x, 0, transform.position.z)) < 1)
         {
-            _pos = new Vector3(Random.Range(movementBounds.min.x, movementBounds.max.x), transform.position.y, Random.Range(movementBounds.min.z, movementBounds.max.z));
+            _pos = new Vector3(transform.parent.position.x, 0, transform.parent.position.z) + new Vector3(Random.Range(movementBounds.min.x, movementBounds.max.x), transform.position.y, Random.Range(movementBounds.min.z, movementBounds.max.z));
             agent.SetDestination(_pos);
         }
     }
@@ -179,7 +179,7 @@ public class BJ_Enemy : MonoBehaviour
                 if (Vector3.Distance(_pos, new Vector3(transform.position.x, 0, transform.position.z)) > data.DetectionRange + 1)
                 {
                     playerFound = false;
-                    _pos = new Vector3(Random.Range(movementBounds.min.x, movementBounds.max.x), 0, Random.Range(movementBounds.min.z, movementBounds.max.z));
+                    _pos = new Vector3(transform.parent.position.x, 0, transform.parent.position.z) + new Vector3(Random.Range(movementBounds.min.x, movementBounds.max.x), 0, Random.Range(movementBounds.min.z, movementBounds.max.z));
                 }
                 break;
         }
@@ -271,34 +271,3 @@ public class BJ_Enemy : MonoBehaviour
         Heal
     }
 }
-
-/*
- * 
- * 
- * mouvement random léger
- *      circlecast autour de lui pour détection du joueur
- *          if found && !heal follow player & no more circlecast
- *          else wait random temps puis loop back
- *          
- *      if heal
- *          circlecast autour de lui pour détection de ses alliés
- *              check de la vie des trouvés
- *                  si trouvé low go to him & heal with cooldown
- *              if found player flees
- *          
- * onMoveToPlayer
- *      switch ennemyType
- *          
- *          càc - if close enough hit then wait before next hit (still move)
- *          
- *          dist - if range OK & no obstacle hit then wait before next hit (still move)
- *                  if player too close flees
- *          
- *          
- *      
- * 
- * 
- * 
- * 
- * 
- */

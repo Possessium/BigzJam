@@ -6,7 +6,7 @@ public class BJ_LineSpell : BJ_Spell
 {
     private void Update()
     {
-        transform.position += new Vector3(transform.forward.x, 0, transform.forward.z) * .1f;
+        transform.position += new Vector3(transform.forward.x, 0, transform.forward.z) * .25f;
     }
 
     private void OnCollisionEnter(Collision collision)

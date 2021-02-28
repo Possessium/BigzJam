@@ -25,7 +25,12 @@ public class BJ_ConeSpell : BJ_Spell
             }
         }
 
-        Destroy(this.gameObject);
+        StartCoroutine(DelayDestroy());
     }
 
+    IEnumerator DelayDestroy()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(this.gameObject);
+    }
 }

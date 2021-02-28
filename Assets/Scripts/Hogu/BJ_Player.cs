@@ -57,6 +57,19 @@ public class BJ_Player : MonoBehaviour
 
     #endregion
 
+    #region Sounds
+    [SerializeField] AudioClip lineSound;
+    [SerializeField] AudioClip coneSound;
+    [SerializeField] AudioClip novaSound;
+    [SerializeField] AudioClip areaSound;
+    [SerializeField] AudioClip wallSound;
+    [SerializeField] AudioClip dedSound;
+    [SerializeField] AudioClip oofSound;
+    [SerializeField] AudioClip switchSound;
+
+    [SerializeField] AudioSource soundSource;
+    #endregion
+
     [SerializeField] GameObject healthSource;
     [SerializeField] List<GameObject> healths;
     [SerializeField] GameObject ui;
@@ -69,6 +82,15 @@ public class BJ_Player : MonoBehaviour
     private void Start()
     {
         InitHealth();
+
+        spell1 = (SpellType)Random.Range(0, 5);
+        spell2 = (SpellType)Random.Range(0, 5);
+
+        spell1Back.sprite = spell1 == SpellType.Area ? areaSpellSpriteBack : spell1 == SpellType.Cone ? coneSpellSpriteBack : spell1 == SpellType.Line ? lineSpellSpriteBack : spell1 == SpellType.Nova ? novaSpellSpriteBack : wallSpellSpriteBack;
+        spell1Front.sprite = spell1 == SpellType.Area ? areaSpellSpriteFront : spell1 == SpellType.Cone ? coneSpellSpriteFront : spell1 == SpellType.Line ? lineSpellSpriteFront : spell1 == SpellType.Nova ? novaSpellSpriteFront : wallSpellSpriteFront;
+
+        spell2Back.sprite = spell2 == SpellType.Area ? areaSpellSpriteBack : spell2 == SpellType.Cone ? coneSpellSpriteBack : spell2 == SpellType.Line ? lineSpellSpriteBack : spell2 == SpellType.Nova ? novaSpellSpriteBack : wallSpellSpriteBack;
+        spell2Front.sprite = spell2 == SpellType.Area ? areaSpellSpriteFront : spell2 == SpellType.Cone ? coneSpellSpriteFront : spell2 == SpellType.Line ? lineSpellSpriteFront : spell2 == SpellType.Nova ? novaSpellSpriteFront : wallSpellSpriteFront;
     }
 
     private void Update()
@@ -138,20 +160,26 @@ public class BJ_Player : MonoBehaviour
             case SpellType.Line:
                 if (canLine)
                 {
+                    if(lineSound)
+                        soundSource.PlayOneShot(lineSound);
                     StartCoroutine(CoolDown(_t));
-                    Instantiate(lineSpell, transform.position, _rotation);
+                    Instantiate(lineSpell, transform.position + transform.up, _rotation);
                 }
                 break;
             case SpellType.Wall:
                 if (canWall)
                 {
+                    if(wallSound)
+                        soundSource.PlayOneShot(wallSound);
                     StartCoroutine(CoolDown(_t));
-                    Instantiate(wallSpell, aimObject.transform.position, _rotation);
+                    Instantiate(wallSpell, aimObject.transform.position, Quaternion.identity);
                 }
                 break;
             case SpellType.Cone:
                 if (canCone)
                 {
+                    if(coneSound)
+                        soundSource.PlayOneShot(coneSound);
                     StartCoroutine(CoolDown(_t));
                     Instantiate(coneSpell, transform.position, _rotation);
                 }
@@ -159,6 +187,8 @@ public class BJ_Player : MonoBehaviour
             case SpellType.Area:
                 if (canArea)
                 {
+                    if(areaSound)
+                        soundSource.PlayOneShot(areaSound);
                     StartCoroutine(CoolDown(_t));
                     Instantiate(areaSpell, aimObject.transform.position, Quaternion.identity);
                 }
@@ -166,6 +196,8 @@ public class BJ_Player : MonoBehaviour
             case SpellType.Nova:
                 if (canNova)
                 {
+                    if(novaSound)
+                        soundSource.PlayOneShot(novaSound);
                     StartCoroutine(CoolDown(_t));
                     Instantiate(novaSpell, aimObject.transform.position, Quaternion.identity);
                 }
@@ -187,6 +219,10 @@ public class BJ_Player : MonoBehaviour
                     canLine = false;
                     if (_time > lineCooldown)
                     {
+                        if (spell1 == _t)
+                            spell1Front.fillAmount = 1;
+                        if (spell2 == _t)
+                            spell1Front.fillAmount = 1;
                         canLine = true;
                         yield break;
                     }
@@ -195,6 +231,10 @@ public class BJ_Player : MonoBehaviour
                     canWall = false;
                     if (_time > wallCooldown)
                     {
+                        if (spell1 == _t)
+                            spell1Front.fillAmount = 1;
+                        if (spell2 == _t)
+                            spell1Front.fillAmount = 1;
                         canWall = true;
                         yield break;
                     }
@@ -203,6 +243,10 @@ public class BJ_Player : MonoBehaviour
                     canCone = false;
                     if (_time > coneCooldown)
                     {
+                        if (spell1 == _t)
+                            spell1Front.fillAmount = 1;
+                        if (spell2 == _t)
+                            spell1Front.fillAmount = 1;
                         canCone = true;
                         yield break;
                     }
@@ -211,6 +255,10 @@ public class BJ_Player : MonoBehaviour
                     canArea = false;
                     if (_time > areaCooldown)
                     {
+                        if (spell1 == _t)
+                            spell1Front.fillAmount = 1;
+                        if (spell2 == _t)
+                            spell1Front.fillAmount = 1;
                         canArea = true;
                         yield break;
                     }
@@ -219,6 +267,10 @@ public class BJ_Player : MonoBehaviour
                     canNova = false;
                     if (_time > novaCooldown)
                     {
+                        if (spell1 == _t)
+                            spell1Front.fillAmount = 1;
+                        if (spell2 == _t)
+                            spell1Front.fillAmount = 1;
                         canNova = true;
                         yield break;
                     }
@@ -261,6 +313,9 @@ public class BJ_Player : MonoBehaviour
         if (!_s)
             return;
 
+        if(switchSound)
+            soundSource.PlayOneShot(switchSound);
+
         SpellType _t = _s.TypeSpell;
 
         if(_1)
@@ -300,6 +355,9 @@ public class BJ_Player : MonoBehaviour
             return;
         }
 
+        if(oofSound)
+            soundSource.PlayOneShot(oofSound);
+
         hitBlink = StartCoroutine(Blink());
 
         healths[health].transform.GetChild(0).gameObject.SetActive(false);
@@ -323,6 +381,9 @@ public class BJ_Player : MonoBehaviour
 
     void Death()
     {
+        if(dedSound)
+            soundSource.PlayOneShot(dedSound);
+
         animator.SetTrigger("Death");
         healths[0].transform.GetChild(0).gameObject.SetActive(false);
         canMove = false;
@@ -337,22 +398,3 @@ public class BJ_Player : MonoBehaviour
     }
 
 }
-
-/*
- * 
- * onmovement
- *      check la direction, if wall don't
- *      
- * public Hit(int dmg)
- * 
- * onFire
- *      call le spell
- * 
- * onChangeSpell
- *      check si un spell nearby
- *          échanger si oui
- *              
- * death
- * 
- * 
- */

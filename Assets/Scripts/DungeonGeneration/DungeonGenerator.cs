@@ -111,6 +111,8 @@ public class DungeonGenerator : MonoBehaviour
 
     public void AddGeneratedRoom()
     {
+        return;
+
         roomCount++;
 
         if(roomCount >= totalRooms)
@@ -129,5 +131,19 @@ public class DungeonGenerator : MonoBehaviour
             roomCount = 0;
             totalRooms = 0;
         }
+    }
+
+    public void DungeonGenerated()
+    {
+        Navmesh.BuildNavMesh();
+
+        BJ_Enemy[] _e = FindObjectsOfType<BJ_Enemy>();
+        foreach (BJ_Enemy _en in _e)
+        {
+            _en.Init();
+        }
+
+        if (BJ_GameManager.I)
+            BJ_GameManager.I.RoomReady();
     }
 }

@@ -538,6 +538,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365850993}
   m_CullTransparentMesh: 1
+--- !u!1 &385468630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 385468632}
+  - component: {fileID: 385468631}
+  m_Layer: 6
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &385468631
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385468630}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &385468632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385468630}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1531841223}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &437417910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,6 +2797,7 @@ Transform:
   m_Children:
   - {fileID: 1738900851}
   - {fileID: 963194228}
+  - {fileID: 385468632}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -2869,8 +2997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   health: 100
-  spell1: 4
-  spell2: 1
+  spell1: 3
+  spell2: 2
   aimObject: {fileID: 1738900850}
   wallLayer:
     serializedVersion: 2
@@ -2883,11 +3011,11 @@ MonoBehaviour:
   novaSpell: {fileID: 8153216758024294110, guid: 78a2623acec18174fa8f17ef790837f0, type: 3}
   areaSpell: {fileID: 5748687223854035239, guid: 41d3240f86f056b42b569551e9ec867f, type: 3}
   wallSpell: {fileID: 9102187711103334762, guid: 2dc345ea9eb2d1047b1ff047fa77e120, type: 3}
-  lineCooldown: 2
-  novaCooldown: 2
-  coneCooldown: 2
+  lineCooldown: 1
+  novaCooldown: 7
+  coneCooldown: 3
   wallCooldown: 2
-  areaCooldown: 2
+  areaCooldown: 5
   canLine: 1
   canNova: 1
   canCone: 1
@@ -2907,6 +3035,15 @@ MonoBehaviour:
   novaSpellSpriteFront: {fileID: 7521776164603160111, guid: f4eef43e41ed574479640d76f3b6a45e, type: 3}
   areaSpellSpriteFront: {fileID: 1649736804516412609, guid: f4eef43e41ed574479640d76f3b6a45e, type: 3}
   wallSpellSpriteFront: {fileID: 5860880220168725377, guid: f4eef43e41ed574479640d76f3b6a45e, type: 3}
+  lineSound: {fileID: 8300000, guid: 31483ef22bc5031439f16f8c5487c0d3, type: 3}
+  coneSound: {fileID: 8300000, guid: a9ba01058a0a5b5479c536728ced139e, type: 3}
+  novaSound: {fileID: 8300000, guid: b088646febb492d4fa62460b1bbf5c24, type: 3}
+  areaSound: {fileID: 0}
+  wallSound: {fileID: 0}
+  dedSound: {fileID: 8300000, guid: b878a7fa4cc92da44835b3dd25340ce8, type: 3}
+  oofSound: {fileID: 8300000, guid: 4c64c2afb8a0a3a41afaa6bfbe557cd7, type: 3}
+  switchSound: {fileID: 8300000, guid: f81e163eced527a4d82d93607a14f7e9, type: 3}
+  soundSource: {fileID: 385468631}
   healthSource: {fileID: 3295088435220953230, guid: 7ff3d1708a17cde4c828b22e1b1cfd74, type: 3}
   healths: []
   ui: {fileID: 1491987381}
@@ -3270,6 +3407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dungeonGenerationData: {fileID: 11400000, guid: f8a9223a8d11d644ebcced0f404e385e, type: 2}
   Navmesh: {fileID: 1797654453}
+  totalRooms: 0
+  roomCount: 0
 --- !u!114 &1797654451
 MonoBehaviour:
   m_ObjectHideFlags: 0

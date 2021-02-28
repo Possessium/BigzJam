@@ -6,10 +6,16 @@ public class BJ_AreaSpell : BJ_Spell
 {
     [SerializeField] float duration;
     [SerializeField] float cooldown;
+    [SerializeField] float range;
 
     float timer = 0;
     float hitTimer = 0;
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(0, 255, 255, .5f);
+        Gizmos.DrawSphere(transform.position, range);
+    }
 
     private void Update()
     {
@@ -24,7 +30,7 @@ public class BJ_AreaSpell : BJ_Spell
         {
             hitTimer = 0;
 
-            Collider[] _hits = Physics.OverlapSphere(transform.position, 5, enemyLayer);
+            Collider[] _hits = Physics.OverlapSphere(transform.position, range, enemyLayer);
 
             foreach (Collider _hit in _hits)
             {
