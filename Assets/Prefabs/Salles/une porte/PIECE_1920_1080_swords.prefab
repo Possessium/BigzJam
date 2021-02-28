@@ -2177,26 +2177,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2344861894079847400, guid: 6d52ab52aea5a0d4cafd6c154800461a, type: 3}
-      propertyPath: m_Extents.x
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439261114564297575, guid: 6d52ab52aea5a0d4cafd6c154800461a, type: 3}
-      propertyPath: m_Size.x
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439261114564297575, guid: 6d52ab52aea5a0d4cafd6c154800461a, type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439261114564297575, guid: 6d52ab52aea5a0d4cafd6c154800461a, type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439261114564297575, guid: 6d52ab52aea5a0d4cafd6c154800461a, type: 3}
-      propertyPath: m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7704253856141175661, guid: 6d52ab52aea5a0d4cafd6c154800461a, type: 3}
       propertyPath: m_Name
       value: carved stone 1
@@ -2445,26 +2425,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2963959797703517396}
     m_Modifications:
-    - target: {fileID: 3955185383240097813, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
-      propertyPath: m_Extents.x
-      value: 0.2884269
-      objectReference: {fileID: 0}
-    - target: {fileID: 3955185383240097813, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
-      propertyPath: m_Extents.y
-      value: 0.30377364
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902874150243189015, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902874150243189015, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902874150243189015, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
-      propertyPath: m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7015916247525807130, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
       propertyPath: m_Name
       value: obstacle_combe_01
@@ -2951,26 +2911,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2963959797703517396}
     m_Modifications:
-    - target: {fileID: 3955185383240097813, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
-      propertyPath: m_Extents.x
-      value: 0.2884269
-      objectReference: {fileID: 0}
-    - target: {fileID: 3955185383240097813, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
-      propertyPath: m_Extents.y
-      value: 0.30377364
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902874150243189015, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902874150243189015, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4902874150243189015, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
-      propertyPath: m_Center.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7015916247525807130, guid: a6d312cf5072eca43a24ec2307262184, type: 3}
       propertyPath: m_Name
       value: obstacle_combe_01 (1)
@@ -3087,26 +3027,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2634484412127080616, guid: 998eff92d03300243928b613753be436, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3161913283348283420, guid: 998eff92d03300243928b613753be436, type: 3}
-      propertyPath: m_Extents.x
-      value: 0.20977736
-      objectReference: {fileID: 0}
-    - target: {fileID: 3161913283348283420, guid: 998eff92d03300243928b613753be436, type: 3}
-      propertyPath: m_Extents.y
-      value: 0.4000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290811876201794935, guid: 998eff92d03300243928b613753be436, type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290811876201794935, guid: 998eff92d03300243928b613753be436, type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3290811876201794935, guid: 998eff92d03300243928b613753be436, type: 3}
-      propertyPath: m_Center.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8362010898983271198, guid: 998eff92d03300243928b613753be436, type: 3}
