@@ -9,7 +9,7 @@ public class BJ_AreaSpell : BJ_Spell
     [SerializeField] float range;
 
     float timer = 0;
-    float hitTimer = 0;
+    [SerializeField] float hitTimer = 0;
 
     private void OnDrawGizmos()
     {
@@ -24,14 +24,13 @@ public class BJ_AreaSpell : BJ_Spell
         if (timer > duration)
             Destroy(this.gameObject);
 
-        cooldown += Time.deltaTime;
+        hitTimer += Time.deltaTime;
 
         if (hitTimer > cooldown)
         {
             hitTimer = 0;
 
-            Collider[] _hits = Physics.OverlapSphere(transform.position, range, enemyLayer);
-
+            Collider[] _hits = Physics.OverlapSphere(transform.localPosition, range, enemyLayer);
             foreach (Collider _hit in _hits)
             {
                 if (_hit.GetComponent<BJ_Enemy>())

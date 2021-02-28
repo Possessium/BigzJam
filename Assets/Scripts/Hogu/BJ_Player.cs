@@ -105,7 +105,7 @@ public class BJ_Player : MonoBehaviour
         if (Physics.Raycast(transform.position, new Vector3(0, 0, movement.y), out _hit, 1, wallLayer))
             movement.y = 0;
 
-        transform.position += new Vector3(movement.x, 0, movement.y) * .2f;
+        transform.position += new Vector3(movement.x, 0, movement.y) * .3f;
     }
 
     public void SetMove(bool _state)
@@ -303,7 +303,7 @@ public class BJ_Player : MonoBehaviour
 
         for (int i = 0; i < _items.Length; i++)
         {
-            if(Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(_items[i].transform.position.x, 0, _items[i].transform.position.z)) < 2)
+            if(Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(_items[i].transform.position.x, 0, _items[i].transform.position.z)) < 5)
             {
                 _s = _items[i];
                 break;
@@ -394,6 +394,10 @@ public class BJ_Player : MonoBehaviour
     {
         transform.position = new Vector3(0, 75, 0);
         health = maxHealth;
+        for (int i = 0; i < healths.Count; i++)
+        {
+            healths[i].transform.GetChild(0).gameObject.SetActive(true);
+        }
         animator.SetTrigger("Respawn");
     }
 

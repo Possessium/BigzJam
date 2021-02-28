@@ -11,7 +11,7 @@ public class BJ_EnemyFire : MonoBehaviour
 
     private void Update()
     {
-        transform.position += transform.up * .1f;
+        transform.position += transform.up * .3f;
     }
 
     private void OnCollisionEnter(Collision collision)

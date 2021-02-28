@@ -106,9 +106,17 @@ public class BJ_GameManager : MonoBehaviour
             if (_hs < score)
             {
                 PlayerPrefs.SetInt("Highscore", score);
+                _hs = score;
                 newHighscore.SetActive(true);
             }
 
+            highScore.text = _hs.ToString("000000");
+        }
+
+        else
+        {
+            PlayerPrefs.SetInt("Highscore", score);
+            newHighscore.SetActive(true);
             highScore.text = score.ToString("000000");
         }
         audioSource.clip = endMusic;
@@ -120,7 +128,7 @@ public class BJ_GameManager : MonoBehaviour
     {
         if(transition)
             transition.SetActive(true);
-        FindObjectOfType<BJ_Player>().transform.position = new Vector3(0, 70, 0);
+        FindObjectOfType<BJ_Player>().transform.position = new Vector3(0, 75, 0);
         playTimer = false;
         player.SetMove(false);
         DungeonGenerator.I.CreateDungeon();
@@ -152,6 +160,9 @@ public class BJ_GameManager : MonoBehaviour
 
     public void Restart()
     {
+        audioSource.clip = gameMusic;
+        audioSource.Play();
+        audioSource.loop = true;
         deathUI.SetActive(false);
         score = 0;
         time = 0;

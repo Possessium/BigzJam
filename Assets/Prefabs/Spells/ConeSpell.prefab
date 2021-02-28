@@ -865,7 +865,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 15
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4851,7 +4851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fx: {fileID: 0}
   animator: {fileID: 0}
-  damage: 5
+  damage: 30
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128

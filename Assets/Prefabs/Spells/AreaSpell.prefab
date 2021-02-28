@@ -4857,8 +4857,9 @@ MonoBehaviour:
     m_Bits: 128
   spellType: 3
   duration: 10
-  cooldown: 1.5
+  cooldown: 1
   range: 6
+  hitTimer: 0
 --- !u!1 &7245987703166244841
 GameObject:
   m_ObjectHideFlags: 0

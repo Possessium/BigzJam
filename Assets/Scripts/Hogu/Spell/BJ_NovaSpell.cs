@@ -40,7 +40,8 @@ public class BJ_NovaSpell : BJ_Spell
     {
         foreach (BJ_Enemy _e in hitEnemies)
         {
-            _e.SetFreeze(false);
+            if(_e)
+                _e.SetFreeze(false);
         }
     }
 }
