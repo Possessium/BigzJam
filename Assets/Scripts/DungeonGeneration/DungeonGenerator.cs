@@ -76,12 +76,12 @@ public class DungeonGenerator : MonoBehaviour
         foreach (Vector2Int roomLocation in rooms)
         {
 
-            int[] randomList = Random(9);
+            int[] randomList = Random(13);
             int number = randomList[0];
-
             RoomController.instance.LoadRoom("Room" + number, roomLocation.x, roomLocation.y);
 
-           /* if (map.ContainsKey(number))
+
+            /*if (map.ContainsKey(number))
             {
                 var val = map[number];
                 map.Remove(number);
@@ -92,6 +92,7 @@ public class DungeonGenerator : MonoBehaviour
             {
                 map.Add(number, 1);
                 
+
             }*/
 
             
