@@ -50,7 +50,7 @@ public class DungeonGenerator : MonoBehaviour
         SpawnRooms(dungeonRooms);
     }
 
-    private int[] Random(int length)
+    private int Random(int length)
     {
         int[] randomList = new int[length];
 
@@ -62,42 +62,47 @@ public class DungeonGenerator : MonoBehaviour
 
         randomList = randomList.OrderBy(i => Guid.NewGuid()).ToArray();
 
-        return randomList;   
+        return randomList[0];   
     }
 
 
 
     private void SpawnRooms(IEnumerable<Vector2Int> rooms)
     {
+        
+        List<int> randomList = new List<int>();
         Dictionary<int, int> map = new Dictionary<int, int>();
+        List<RoomInfo> tempRooms = new List<RoomInfo>();
+
+        for (int i = 0; i < rooms.Count(); i++)
+        {
+            int number = Random(13);
+            randomList.Add(number);
+        }
+
+        int lenght = randomList.Count();
 
         RoomController.instance.LoadRoom("Start", 0, 0);
 
         foreach (Vector2Int roomLocation in rooms)
         {
 
-            int[] randomList = Random(13);
-            int number = randomList[0];
-            RoomController.instance.LoadRoom("Room" + number, roomLocation.x, roomLocation.y);
 
-
-            /*if (map.ContainsKey(number))
+            //int[] randomList = Random(13);
+            //int number = randomList[0];
+            //RoomController.instance.LoadRoom("Room" + number, roomLocation.x, roomLocation.y);
+            if (randomList.Exists(x => x == randomList[0]))
             {
-                var val = map[number];
-                map.Remove(number);
-                map.Add(number, val + 1);
-                RoomController.instance.LoadRoom("Room3", roomLocation.x, roomLocation.y);
+                RoomController.instance.LoadRoom($"Room{randomList[0]}", roomLocation.x, roomLocation.y);
+                randomList.RemoveAll(x => x == randomList[0]);
+                
+                lenght = randomList.Count();
             }
             else
             {
-                map.Add(number, 1);
-                
-
-            }*/
-
-            
-
-          
+                RoomController.instance.LoadRoom("Room3", roomLocation.x, roomLocation.y);
+            }
+  
         }
 
 
