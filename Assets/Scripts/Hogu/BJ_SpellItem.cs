@@ -30,27 +30,27 @@ public class BJ_SpellItem : MonoBehaviour
             case SpellType.Line:
                 rend.sprite = lineSprite;
 
-                rend.color = Color.yellow;
+                //rend.color = Color.yellow;
                 break;
             case SpellType.Wall:
                 rend.sprite = wallSprite;
 
-                rend.color = Color.grey;
+                //rend.color = Color.grey;
                 break;
             case SpellType.Cone:
                 rend.sprite = coneSprite;
 
-                rend.color = Color.blue;
+                //rend.color = Color.blue;
                 break;
             case SpellType.Area:
                 rend.sprite = areaSprite;
 
-                rend.color = Color.red;
+                //rend.color = Color.red;
                 break;
             case SpellType.Nova:
                 rend.sprite = novaSprite;
 
-                rend.color = Color.cyan;
+                //rend.color = Color.cyan;
                 break;
         }
     }

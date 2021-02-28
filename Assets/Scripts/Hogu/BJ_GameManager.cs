@@ -89,7 +89,8 @@ public class BJ_GameManager : MonoBehaviour
         }
         pauseUI.SetActive(false);
         if(transition)
-            transition.SetActive(true);
+            transition.SetActive(false);
+        time = 0;
         playTimer = true;
         player.SetMove(true);
     }
