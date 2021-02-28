@@ -99,6 +99,7 @@ public class RoomController : MonoBehaviour
     {
         if(DoesRoomExist(x, z) == true)
         {
+            DungeonGenerator.I.DecreaseRoomCount();
             return;
         }
         
@@ -125,7 +126,10 @@ public class RoomController : MonoBehaviour
     public void RegisterRoom(Room room)
     {
         if (currentLoadRoomData == null)
+        {
+            DungeonGenerator.I.DecreaseRoomCount();
             return;
+        }
 
         if (!DoesRoomExist(currentLoadRoomData.x, currentLoadRoomData.z))
         {

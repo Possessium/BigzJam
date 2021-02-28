@@ -30,7 +30,8 @@ public class BJ_NavmeshGenerator : MonoBehaviour
         if (agentTypeCount < 1) { return; }
         for (int i = 0; i < navMeshElements.Count; ++i) 
         {
-            navMeshElements[i].transform.SetParent(gameObject.transform, true); 
+            if(navMeshElements[i])
+                navMeshElements[i].transform.SetParent(gameObject.transform, true); 
         }
         for (int i = 0; i < agentTypeCount; ++i)
         {

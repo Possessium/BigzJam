@@ -81,10 +81,12 @@ public class DungeonGenerator : MonoBehaviour
         }
     }
 
-    int totalRooms = 0;
-    int roomCount = 0;
+    [SerializeField] int totalRooms = 0;
+    [SerializeField] int roomCount = 0;
 
-    public void SetRoomCount(int _i) => totalRooms = _i; 
+    public void SetRoomCount(int _i) => totalRooms = _i;
+
+    public void DecreaseRoomCount() => totalRooms--;
 
     public void AddGeneratedRoom()
     {
@@ -101,6 +103,9 @@ public class DungeonGenerator : MonoBehaviour
             }
 
             BJ_GameManager.I.RoomReady();
+
+            roomCount = 0;
+            totalRooms = 0;
         }
     }
 }
